@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+body {
+	font: 14px 'Ubuntu', Arial, sans-serif;
+	background-color: #f4f4f4;
+	color: #515862;
+}
+a {
+	color: #46a5d1;
+}
