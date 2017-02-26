@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+$primary-text-color: #515862;
+$orange-color: #f98561;
+$header-padding: 22px;
+$hover-color: #12a3d6;
+
+@mixin img-interpolar {
+	image-rendering: -moz-crisp-edges;
+	-ms-interpolation-mode: nearest-neighbor;
+	image-rendering: crisp-edges;
+}
+
+@mixin navbar-tab-hightlight {
+	background: $hover-color;
+			a {
+				color: #fff;
+				background: none;
+			}
+	&:not(:last-child) {
+				&::before {
+					content: ''; 
+			    	position: absolute;
+			    	left: 50%;
+			    	bottom: 10px;
+			    	border: 6px solid transparent;
+			    	border-bottom: 6px solid #0080B7;
+			    	margin-left: -6px;
+				}
+				&::after {
+					content: '';
+					position: absolute;
+					height: 10px;
+					background: #0080b7;
+					bottom: 0;
+					width: 100%;
+				}
+			}	
+}
+
+body {
+	font: 1.2em 'Ubuntu', Arial, sans-serif;
+	background-color: #f4f4f4;
+	color: $primary-text-color;
+}
+a {
+	color: #46a5d1;
+}
+
+#header {
+	background: #fff;
+	padding: $header-padding 0;
+	a {
+		
+	}
+	.blog a {
+		color: #FFF;
+		padding-top: 3px;
+		padding-bottom: 3px;
+	}
+}
+
+.logo {
+	margin-top: 8px;
+	display: inline-block;
+}
+
+.main-nav {
+	position: relative;
+	margin-top: -$header-padding;
+	margin-bottom: -$header-padding;
+	
+	li {
+		&:hover {
+			@include navbar-tab-hightlight;
+		}
+		a {
+			&:focus {background: none;}
+			color: $primary-text-color;
+			font-size: 1.4em;
+			padding-left: 25px;
+			padding-right: 25px;
+		}
+		padding-top: $header-padding;
+		padding-bottom: $header-padding;
+	}
+
+	.tab-active {
+		@include navbar-tab-hightlight;
+	}
+
+	.blog {
+		background: $orange-color;
+		border-radius: 4px;
+		margin-top: 29px;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+.search  {
+	img {
+		display: inline-block;
+		transition: transform .3s;
+	}
+	a {
+		color: $primary-text-color;
+		font-size: 1.2em;
+		text-decoration: none;
+	}
+	&:hover img{
+			transform: scale(1.15);
+	}
+}
